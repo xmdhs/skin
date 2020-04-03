@@ -71,6 +71,9 @@ public class main extends PluginBase{
         String dateStr = Long.toString(System.currentTimeMillis()/1000L);
         try {
             File dir = new File("skins");
+          if (!dir.exists()) {
+              dir.mkdir();
+          }
             ImageIO.write(image, "png", new File(dir, player + "-" + dateStr + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
