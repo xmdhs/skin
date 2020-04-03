@@ -1,0 +1,10 @@
+name: getskin
+main: top.xmdhs.skin.main
+version: "0.0.1"
+author: xmdhs
+api: ["1.0.8"]
+description: get player skin
+commands:
+  skin:
+    description: 获取皮肤
+    usage: "/skin"
