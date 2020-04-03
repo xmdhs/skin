@@ -33,11 +33,7 @@ public class main extends PluginBase{
         //如何得到指令名称个人习惯原因
         if("skin".equals(command.getName())){
             if(sender.isPlayer()) {
-                Player player = (Player) sender;
-                String man = sender.getName();
-                sender.sendMessage("大概提取成功了吧");
-                SerializedImage sskin = player.getSkin().getSkinData();
-                setData(sskin,man);
+                sender.sendMessage("请在控制台使用");
             }else {
                if (args.length > 0) {
                  try {
