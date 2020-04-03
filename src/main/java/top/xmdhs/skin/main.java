@@ -37,10 +37,10 @@ public class main extends PluginBase{
             }else {
                if (args.length > 0) {
                  try {
-                     String mans = args[0];
-                     Player player = Server.getInstance().getPlayer(mans);
+                     String man = args[0];
+                     Player player = Server.getInstance().getPlayer(man);
                      SerializedImage sskin = player.getSkin().getSkinData();
-                     setData(sskin, mans);
+                     setData(sskin, man);
                      getLogger().info("我觉得成功了");
                  } catch (Exception e) {
                      getLogger().info("玩家大概不存在");
@@ -56,12 +56,10 @@ public class main extends PluginBase{
         return true;
     }
     public void setData(SerializedImage data, String player) {
-        int width = 0;
-        int height = 0;
-        width = data.width;
-        height = data.height;
+        int width = data.width;
+        int height = data.height;
         DataBuffer buffer = new DataBufferByte(data.data, data.data.length);
-        WritableRaster raster = Raster.createInterleavedRaster(buffer, width, height, 4 * width, 4, new  int[] {0, 1, 2, 3}, (Point)null);
+        WritableRaster raster = Raster.createInterleavedRaster(buffer, width, height, 4 * width, 4, new  int[] {0, 1, 2, 3}, null);
         ColorModel cm = new ComponentColorModel(ColorModel.getRGBdefault().getColorSpace(), true, false, Transparency.TRANSLUCENT, DataBuffer.TYPE_BYTE);
         BufferedImage image = new BufferedImage(cm, raster, true, null);
         String dateStr = Long.toString(System.currentTimeMillis()/1000L);
